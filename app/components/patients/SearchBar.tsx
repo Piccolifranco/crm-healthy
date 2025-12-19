@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
     return (
-        <div className="relative w-full max-w-lg">
+        <div className="relative w-full">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
                 <IoSearchOutline size={20} />
             </div>
