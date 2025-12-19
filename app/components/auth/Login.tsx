@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
 import { useLogin } from "../../lib/services/auth";
+import { useAuthStore } from "../../lib/store/authStore";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface LoginProps {
   onRegisterClick: () => void;
+}
+
+interface DecodedToken {
+  role: string;
+  // Add other fields if needed
 }
 
 export default function Login({ onRegisterClick }: LoginProps) {
@@ -13,6 +21,7 @@ export default function Login({ onRegisterClick }: LoginProps) {
   const [rememberMe, setRememberMe] = useState(false);
   const router = useRouter();
   const { mutateAsync: login } = useLogin();
+  const queryClient = useQueryClient();
 
   React.useEffect(() => {
     const savedUser = localStorage.getItem("rememberedUser");
@@ -28,6 +37,7 @@ export default function Login({ onRegisterClick }: LoginProps) {
     const res = await login({ email: user, password }, {
       onSuccess: (data) => {
         const accessToken = data?.data.accessToken;
+        const refreshToken = data?.data.refreshToken;
         document.cookie = `accessToken=${accessToken}; path=/; max-age=86400`;
 
         if (rememberMe) {
@@ -37,9 +47,37 @@ export default function Login({ onRegisterClick }: LoginProps) {
         }
 
         toast.success("Inicio de sesión exitoso");
-        setTimeout(() => {
-          router.push("/pacientes");
-        }, 500);
+        queryClient.clear();
+
+        // Decodificar token para obtener el rol
+        try {
+          const decoded = jwtDecode<DecodedToken>(accessToken);
+          const role = decoded.role;
+
+          // Store in Zustand
+          useAuthStore.getState().setAuth(
+            { email: user, role },
+            accessToken,
+            refreshToken
+          );
+
+
+          setTimeout(() => {
+            if (role === "ADMIN") {
+              router.push("/pacientes");
+            } else if (role === "CUSTOMER") {
+              // Asumimos que la home del customer es /turnos
+              router.push("/historia-clinica");
+            } else {
+              // Fallback
+              router.push("/");
+            }
+          }, 500);
+        } catch (error) {
+          console.error("Error decoding token:", error);
+          // Fallback en caso de error
+          router.push("/");
+        }
       },
       onError: () => {
         toast.error("Correo electrónico o contraseña incorrectos");
@@ -60,7 +98,7 @@ export default function Login({ onRegisterClick }: LoginProps) {
           type="text"
           id="user"
           placeholder="Usuario"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent text-gray-900"
           value={user}
           onChange={(e) => setUser(e.target.value)}
           required
@@ -78,7 +116,7 @@ export default function Login({ onRegisterClick }: LoginProps) {
           type="password"
           id="password"
           placeholder="Contraseña"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent text-gray-900"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -117,12 +155,12 @@ export default function Login({ onRegisterClick }: LoginProps) {
           onClick={onRegisterClick}
           className="font-medium text-gray-900 hover:text-gray-800"
         >
-          ¿No tienes una cuenta? <span className="text-blue-600">Registrate</span>
+          ¿No tienes una cuenta? <span className="cursor-pointer text-blue-600">Registrate</span>
         </button>
       </div>
       <button
         type="submit"
-        className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        className="w-full py-2 px-4 cursor-pointer border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
         Iniciar Sesión
       </button>

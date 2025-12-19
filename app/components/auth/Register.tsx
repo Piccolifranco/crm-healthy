@@ -112,7 +112,7 @@ export default function Register({ onLoginClick }: RegisterProps) {
                     onClick={onLoginClick}
                     className="font-medium text-gray-900 hover:text-gray-800"
                 >
-                    ¿Ya tienes una cuenta? <span className="text-blue-600">Inicia Sesión</span>
+                    ¿Ya tienes una cuenta? <span className="cursor-pointer text-blue-600">Inicia Sesión</span>
                 </button>
             </div>
             <button

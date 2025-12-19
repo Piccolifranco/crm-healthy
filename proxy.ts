@@ -22,7 +22,7 @@ export function proxy(req: NextRequest) {
 
   // Si YA está logueado y va al login -> redirigir a /pacientes
   if (token && isAuthPage) {
-    const pacientesUrl = new URL("/pacientes", req.url);
+    const pacientesUrl = new URL("/turnos", req.url);
     return NextResponse.redirect(pacientesUrl);
   }
 
