@@ -97,7 +97,7 @@ export const PatientsTable = ({ data, onDelete, onRowClick }: PatientsTableProps
 
     return (
         <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm bg-white">
-            <table className="w-full text-left text-sm text-gray-600">
+            <table className="w-full text-left text-xs md:text-sm text-gray-600">
                 <thead className="bg-gray-50 text-xs uppercase text-gray-500 font-semibold">
                     <tr>
                         <SortableHeader label="Nombre y Apellido" columnKey="fullName" />

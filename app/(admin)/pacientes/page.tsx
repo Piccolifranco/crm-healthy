@@ -69,7 +69,7 @@ export default function PatientsPage() {
     };
 
     return (
-        <div className="p-8 space-y-6">
+        <div className="p-4 md:p-8 space-y-6">
             {/* Header / Actions */}
             <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
                 <div className="w-full sm:w-auto flex-1">
@@ -77,7 +77,7 @@ export default function PatientsPage() {
                 </div>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 cursor-pointer bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 sm:py-2.5 cursor-pointer bg-amber-500 hover:bg-amber-600 text-white font-medium text-sm sm:text-base rounded-lg shadow-sm transition-colors"
                 >
                     Nuevo paciente
                     <IoAdd size={20} />
