@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HolaDoc 🏥
 
-## Getting Started
+**HolaDoc** es una aplicación web integral diseñada para la gestión eficiente de pacientes y turnos médicos. Desarrollada con tecnologías modernas, ofrece una experiencia fluida tanto para administradores (profesionales de la salud) como para pacientes.
 
-First, run the development server:
+## 🚀 Características Principales
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Para Administradores (Profesionales)
+- **Gestión de Pacientes**: Alta, baja y modificación de pacientes con información detallada.
+- **Agenda Médica**: Visualización clara de turnos y disponibilidad.
+- **Historia Clínica**: Acceso rápido al historial de visitas de cada paciente.
+- **Búsqueda y Filtrado**: Herramientas potentes para encontrar pacientes por nombre, DNI, obra social, etc.
+- **Generación de Reportes**: Descarga de historias clínicas y visitas en formato PDF.
+
+### Para Pacientes (Clientes)
+- **Portal de Autogestión**: Acceso seguro a su información personal.
+- **Reserva de Turnos**: Interfaz intuitiva (calendario) para visualizar disponibilidad y reservar citas.
+- **Historial de Visitas**: Visualización y descarga de sus propias historias clínicas.
+
+## 🛠️ Tecnologías Utilizadas
+
+Este proyecto está construido sobre un stack tecnológico robusto y moderno:
+
+- **Frontend Core**: [Next.js 16](https://nextjs.org/) (App Router) & [React 19](https://react.dev/)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/) para un código tipado y seguro.
+- **Estilos**: [Tailwind CSS 4](https://tailwindcss.com/) para un diseño responsivo y moderno.
+- **Estado Global**: [Zustand](https://zustand-demo.pmnd.rs/) para la gestión de estado ligero y eficiente.
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query/latest) para el manejo de estado asíncrono y caché.
+- **Calendario**: `react-big-calendar` para la gestión visual de turnos.
+- **Notificaciones**: `react-toastify` para feedback al usuario.
+- **PDFs**: `@react-pdf/renderer` para la generación de documentos dinámicos.
+- **Cliente HTTP**: `axios` con interceptores para manejo de autenticación.
+
+## 📂 Estructura del Proyecto
+
+El proyecto sigue la arquitectura de **Next.js App Router**:
+
+```
+crm-healthy/
+├── app/
+│   ├── (admin)/          # Rutas protegidas para administradores (Agenda, Pacientes)
+│   ├── (customer)/       # Rutas para pacientes (Turnos, Historia Clínica)
+│   ├── components/       # Componentes reutilizables de UI
+│   ├── lib/              # Lógica de negocio, servicios API y stores
+│   ├── layout.tsx        # Layout principal de la aplicación
+│   └── page.tsx          # Página de inicio / Login
+├── public/               # Archivos estáticos
+└── package.json          # Dependencias y scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Instalación y Ejecución
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sigue estos pasos para correr el proyecto localmente:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone <url-del-repositorio>
+    cd crm-healthy
+    ```
 
-## Learn More
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Ejecutar el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  **Abrir en el navegador:**
+    Visita [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔒 Autenticación y Seguridad
 
-## Deploy on Vercel
+- **Manejo de Sesiones**: Tokens JWT almacenados en cookies seguras.
+- **Protección de Rutas**: Middleware y lógica de cliente para restringir acceso según roles.
+- **Auto-Logout**: Cierre de sesión automático ante errores de autenticación (401) para proteger la cuenta.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desarrollado con ❤️ para mejorar la gestión de la salud.

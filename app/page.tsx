@@ -11,6 +11,7 @@ export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
+
     <div className="flex-grow w-full py-12 bg-gray-100 flex flex-col justify-center items-center">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8">
         <div className="w-[100%] justify-center flex">

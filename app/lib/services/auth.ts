@@ -58,7 +58,6 @@ export interface RegisterErrorResponse {
 const register = async (payload: RegisterPayload): Promise<RegisterResponse> => {
   try {
     const res = await api.post<RegisterResponse>("/auth/register", payload);
-    console.log("Register response:", res);
     return res.data;
   } catch (error) {
     console.error("Register api error:", error);
