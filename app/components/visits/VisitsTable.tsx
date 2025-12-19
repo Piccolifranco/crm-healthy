@@ -30,7 +30,7 @@ export const VisitsTable = ({ visits, patient, onDownload }: VisitsTableProps) =
                     <tr>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Nombre y Apellido</th>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Doctor/a</th>
-                        <th className="px-2 md:px-6 py-4">Diagnóstico</th>
+                        <th className="hidden md:table-cell px-2 md:px-6 py-4">Diagnóstico</th>
                         <th className="px-2 md:px-6 py-4">Fecha</th>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Estado</th>
                         <th className="px-2 md:px-6 py-4 text-center">Acciones</th>
@@ -44,7 +44,7 @@ export const VisitsTable = ({ visits, patient, onDownload }: VisitsTableProps) =
                                     {visit.patientName}
                                 </td>
                                 <td className="hidden md:table-cell px-2 md:px-6 py-4">{visit.doctor}</td>
-                                <td className="px-2 md:px-6 py-4 max-w-xs truncate" title={visit.diagnosis}>
+                                <td className="hidden md:table-cell px-2 md:px-6 py-4 max-w-xs truncate" title={visit.diagnosis}>
                                     {visit.diagnosis}
                                 </td>
                                 <td className="px-2 md:px-6 py-4">{visit.date}</td>
