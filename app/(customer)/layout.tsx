@@ -6,12 +6,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
             <Navbar elements={[
                 { href: "/turnos", label: "Turnos" },
                 { href: "/historia-clinica", label: "Historia clínica" },
             ]} />
-            <div className="flex-1 min-h-screen bg-gray-50">
+            <div className="flex-1 min-h-screen bg-gray-50 pt-16 md:pt-0">
                 {children}
             </div>
         </div>
