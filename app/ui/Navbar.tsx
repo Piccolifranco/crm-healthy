@@ -56,7 +56,7 @@ export default function Navbar({ elements }: SidebarProps) {
                 removeCookie("accessToken");
                 router.push("/");
               }}
-              className="w-full px-4 py-3 text-left text-base font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
+              className="w-full px-4 py-3 text-left text-base font-medium text-amber-600 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors"
             >
               Cerrar sesión
             </button>

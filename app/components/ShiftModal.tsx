@@ -75,7 +75,7 @@ export default function ShiftModal({ isOpen, onClose, date, availableHours }: Sh
                             {availableHours.map((hour) => (
                                 <button
                                     key={hour}
-                                    className="py-2 px-3 text-sm font-medium cursor-pointer text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-100"
+                                    className="py-2 px-3 text-sm font-medium cursor-pointer text-green-600 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-100"
                                     onClick={() => handleSelectSlot(hour)}
                                 >
                                     {hour}

@@ -64,7 +64,7 @@ export default function AgendaPage() {
                 {sortedDates.map((date) => (
                     <div key={date} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <h2 className="text-lg font-semibold text-gray-700 mb-4 capitalize flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-amber-500"></span>
                             {getDayLabel(date)}
                         </h2>
 
