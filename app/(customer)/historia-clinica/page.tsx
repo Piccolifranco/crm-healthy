@@ -81,10 +81,10 @@ export default function ClinicalHistoryPage() {
                                         <th className="px-4 py-3 font-medium text-gray-600">
                                             Fecha
                                         </th>
-                                        <th className="px-4 py-3 font-medium text-gray-600">
+                                        <th className="hidden md:table-cell px-4 py-3 font-medium text-gray-600">
                                             Diagnóstico
                                         </th>
-                                        <th className="px-4 py-3 font-medium text-gray-600">
+                                        <th className="hidden md:table-cell px-4 py-3 font-medium text-gray-600">
                                             Descripción
                                         </th>
                                         <th className="px-4 py-3 font-medium text-gray-600 text-center">
@@ -98,10 +98,10 @@ export default function ClinicalHistoryPage() {
                                             <td className="px-4 py-3 align-top text-gray-800 whitespace-nowrap">
                                                 {new Date(visit.date).toLocaleDateString()}
                                             </td>
-                                            <td className="px-4 py-3 align-top text-gray-900 font-medium">
+                                            <td className="hidden md:table-cell px-4 py-3 align-top text-gray-900 font-medium">
                                                 {visit.diagnosis}
                                             </td>
-                                            <td className="px-4 py-3 align-top text-gray-700">
+                                            <td className="hidden md:table-cell px-4 py-3 align-top text-gray-700">
                                                 {visit.description}
                                             </td>
                                             <td className="px-4 py-3 align-top text-center">

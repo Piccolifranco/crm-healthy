@@ -161,6 +161,7 @@ const MyCalendar = () => {
                     style={{ height: '100%' }}
                     culture='es'
                     selectable
+                    longPressThreshold={10}
                     onSelectSlot={handleSelectSlot}
                     dayPropGetter={dayPropGetter}
                     date={selectedDate || new Date()}
