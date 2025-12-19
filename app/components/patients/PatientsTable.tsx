@@ -83,7 +83,7 @@ export const PatientsTable = ({ data, onDelete, onRowClick }: PatientsTableProps
 
     const SortableHeader = ({ label, columnKey }: { label: string, columnKey: SortKey }) => (
         <th
-            className="px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group"
+            className="px-2 md:px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group"
             onClick={() => handleSort(columnKey)}
         >
             <div className="flex items-center gap-1">
@@ -101,32 +101,32 @@ export const PatientsTable = ({ data, onDelete, onRowClick }: PatientsTableProps
                 <thead className="bg-gray-50 text-xs uppercase text-gray-500 font-semibold">
                     <tr>
                         <SortableHeader label="Nombre y Apellido" columnKey="fullName" />
-                        <th className="hidden md:table-cell px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('age')}>
+                        <th className="hidden md:table-cell px-2 md:px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('age')}>
                             <div className="flex items-center gap-1">
                                 Edad
                                 <span className="text-gray-400 group-hover:text-gray-600">{renderSortIcon('age')}</span>
                             </div>
                         </th>
-                        <th className="hidden md:table-cell px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('dni')}>
+                        <th className="hidden md:table-cell px-2 md:px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('dni')}>
                             <div className="flex items-center gap-1">
                                 DNI
                                 <span className="text-gray-400 group-hover:text-gray-600">{renderSortIcon('dni')}</span>
                             </div>
                         </th>
                         <SortableHeader label="Doctor/a" columnKey="doctor" />
-                        <th className="hidden md:table-cell px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('insurance')}>
+                        <th className="hidden md:table-cell px-2 md:px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('insurance')}>
                             <div className="flex items-center gap-1">
                                 Obra Social
                                 <span className="text-gray-400 group-hover:text-gray-600">{renderSortIcon('insurance')}</span>
                             </div>
                         </th>
-                        <th className="hidden md:table-cell px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('lastVisit')}>
+                        <th className="hidden md:table-cell px-2 md:px-6 py-4 cursor-pointer hover:bg-gray-100 transition-colors select-none group" onClick={() => handleSort('lastVisit')}>
                             <div className="flex items-center gap-1">
                                 Última Visita
                                 <span className="text-gray-400 group-hover:text-gray-600">{renderSortIcon('lastVisit')}</span>
                             </div>
                         </th>
-                        <th className="px-6 py-4 text-center">Acciones</th>
+                        <th className="px-2 md:px-6 py-4 text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -137,23 +137,23 @@ export const PatientsTable = ({ data, onDelete, onRowClick }: PatientsTableProps
                                 className="hover:bg-gray-50 transition-colors cursor-pointer"
                                 onClick={() => onRowClick(patient.id)}
                             >
-                                <td className="px-6 py-4 font-medium text-gray-900">
+                                <td className="px-2 md:px-6 py-4 font-medium text-gray-900">
                                     {patient.fullName}
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-4">{patient.age}</td>
-                                <td className="hidden md:table-cell px-6 py-4">{patient.dni}</td>
-                                <td className="px-6 py-4">{patient.doctor}</td>
-                                <td className="hidden md:table-cell px-6 py-4">
+                                <td className="hidden md:table-cell px-2 md:px-6 py-4">{patient.age}</td>
+                                <td className="hidden md:table-cell px-2 md:px-6 py-4">{patient.dni}</td>
+                                <td className="px-2 md:px-6 py-4">{patient.doctor}</td>
+                                <td className="hidden md:table-cell px-2 md:px-6 py-4">
                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
                                         {patient.insurance}
                                     </span>
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-4">
+                                <td className="hidden md:table-cell px-2 md:px-6 py-4">
                                     {patient.lastVisit && new Date(patient.lastVisit).getFullYear() > 1970
                                         ? format(new Date(patient.lastVisit), "dd/MM/yyyy")
                                         : "-"}
                                 </td>
-                                <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
+                                <td className="px-2 md:px-6 py-4" onClick={(e) => e.stopPropagation()}>
                                     <div className="flex justify-center gap-2">
                                         <button
                                             onClick={(e) => {
@@ -171,7 +171,7 @@ export const PatientsTable = ({ data, onDelete, onRowClick }: PatientsTableProps
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={7} className="px-6 py-8 text-center text-gray-500">
+                            <td colSpan={7} className="px-2 md:px-6 py-8 text-center text-gray-500">
                                 No se encontraron pacientes.
                             </td>
                         </tr>
