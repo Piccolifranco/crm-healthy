@@ -72,10 +72,12 @@ export default function PatientsPage() {
         <div className="p-8 space-y-6">
             {/* Header / Actions */}
             <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
-                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+                <div className="w-full sm:w-auto flex-1">
+                    <SearchBar value={searchTerm} onChange={setSearchTerm} />
+                </div>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="flex items-center gap-2 px-4 py-2.5 cursor-pointer bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 cursor-pointer bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm transition-colors"
                 >
                     Nuevo paciente
                     <IoAdd size={20} />
