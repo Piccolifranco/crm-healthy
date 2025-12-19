@@ -86,14 +86,14 @@ export const VisitPDF = ({ patient, visit }: VisitPDFProps) => (
         <Page wrap style={styles.page}>
             <View style={styles.headerBox}>
                 <Text style={[styles.title, styles.bold]}>
-                    ANATOMIA PATOLOGICA GENERAL, PEDIATRICA Y CITOLOGIA
+                    INFORME MEDICO. HISTORIA CLINICA DIGITAL
                 </Text>
-                <Text style={styles.title}>Dra Carolina Lorena Vadillo MPN: 4416</Text>
+                <Text style={styles.title}>Dr Franco Piccoli MPN: 3178</Text>
                 <Text style={styles.text}>
-                    Consultorios Güemes. Remedios de Escalada 599.
+                    Consultorios Devlights. Remedios de Escalada 599.
                 </Text>
                 <Text style={styles.text}>
-                    Chaco, Resistencia. Telefono: 0362-4413405.
+                    Chaco, Resistencia. Telefono: 0362-4424837.
                 </Text>
             </View>
 
