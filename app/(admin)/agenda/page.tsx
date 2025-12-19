@@ -82,15 +82,11 @@ export default function AgendaPage() {
                                             </div>
                                             <div>
                                                 <h3 className="font-semibold text-gray-900 text-lg">{appointment.patientName}</h3>
-                                                {/* <p className="text-sm text-gray-500">{appointment.type}</p> */}
+
                                             </div>
                                         </div>
 
-                                        {/* <div className="flex items-center gap-3">
-                                            <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(appointment.status)}`}>
-                                                {getStatusLabel(appointment.status)}
-                                            </span>
-                                        </div> */}
+
                                     </div>
                                 ))}
                         </div>

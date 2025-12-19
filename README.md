@@ -53,7 +53,7 @@ Sigue estos pasos para correr el proyecto localmente:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone <url-del-repositorio>
+    git clone <https://github.com/Piccolifranco/crm-healthy.git>
     cd crm-healthy
     ```
 
