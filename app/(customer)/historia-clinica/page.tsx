@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { VisitPDF } from "@/app/components/visits/PDF";
 import { MdDownload } from "react-icons/md";
+import MyAppointments from "@/app/components/appointments/MyAppointments";
 
 export default function ClinicalHistoryPage() {
     const { user } = useAuthStore();
@@ -123,6 +124,9 @@ export default function ClinicalHistoryPage() {
                         </div>
                     )}
                 </section>
+
+                {/* Mis Turnos */}
+                <MyAppointments patientId={patient._id} />
             </div>
         </div>
     );
