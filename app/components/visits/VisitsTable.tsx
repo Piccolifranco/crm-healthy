@@ -31,7 +31,7 @@ export const VisitsTable = ({ visits, patient, onDownload }: VisitsTableProps) =
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Nombre y Apellido</th>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Doctor/a</th>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Diagnóstico</th>
-                        <th className="px-2 md:px-6 py-4">Fecha</th>
+                        <th className="px-2 md:px-6 py-4 text-center">Fecha</th>
                         <th className="hidden md:table-cell px-2 md:px-6 py-4">Estado</th>
                         <th className="px-2 md:px-6 py-4 text-center">Acciones</th>
                     </tr>
@@ -47,7 +47,7 @@ export const VisitsTable = ({ visits, patient, onDownload }: VisitsTableProps) =
                                 <td className="hidden md:table-cell px-2 md:px-6 py-4 max-w-xs truncate" title={visit.diagnosis}>
                                     {visit.diagnosis}
                                 </td>
-                                <td className="px-2 md:px-6 py-4">{visit.date}</td>
+                                <td className="px-2 md:px-6 py-4 text-center">{visit.date}</td>
                                 <td className="hidden md:table-cell px-2 md:px-6 py-4">
                                     <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-white ${visit.status === 'Pago' ? 'bg-green-500' : 'bg-red-500'
                                         }`}>
